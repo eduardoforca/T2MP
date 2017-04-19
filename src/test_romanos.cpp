@@ -5,10 +5,32 @@
 #include <gtest/gtest.h>
 #include "romanos.h"
 
+//Testa RetornaNumero para os algarismos validos e para um algarismo invalido
+TEST(RetornaNumeroTest, AllNumbers){
+	EXPECT_EQ(RetornaNumero('I'), 1);
+	EXPECT_EQ(RetornaNumero('V'), 5);
+	EXPECT_EQ(RetornaNumero('X'), 10);
+	EXPECT_EQ(RetornaNumero('L'), 50);
+	EXPECT_EQ(RetornaNumero('C'), 100);
+	EXPECT_EQ(RetornaNumero('D'), 500);
+	EXPECT_EQ(RetornaNumero('M'), 1000);
+	EXPECT_EQ(RetornaNumero('E'), -1);
+}
 TEST(ConverteTest, EmptyString){
 	
 	ASSERT_EQ(Converte(""), -1);
+
+}
+TEST(ConverteTest, SoloNumber){
 	
+	EXPECT_EQ(Converte("I"), 1);
+	EXPECT_EQ(Converte("V"), 5);
+	EXPECT_EQ(Converte("X"), 10);
+	EXPECT_EQ(Converte("L"), 50);
+	EXPECT_EQ(Converte("C"), 100);
+	EXPECT_EQ(Converte("D"), 500);
+	EXPECT_EQ(Converte("M"), 1000);
+
 }
 
 int main(int argc, char **argv) {

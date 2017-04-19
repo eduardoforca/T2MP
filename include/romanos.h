@@ -6,5 +6,6 @@
 #define ROMANOS_H_
 
 int Converte(char* roman_seq);
+int RetornaNumero(char alg_romano);
 
 #endif  // ROMANOS_H_
