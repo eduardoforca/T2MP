@@ -41,6 +41,14 @@ TEST(ConverteTest, Repetitions){
 	EXPECT_NE(Converte("IIII"), 4);
 }
 
+TEST(ConverteTest, SimpleSubtractions){ //ALL FAIL
+	EXPECT_EQ(Converte("IV"), 4);
+	EXPECT_EQ(Converte("IX"), 9);
+	EXPECT_EQ(Converte("XL"), 40);
+	EXPECT_EQ(Converte("XC"), 90);
+	EXPECT_NE(Converte("VX"), 5);
+}
+
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();

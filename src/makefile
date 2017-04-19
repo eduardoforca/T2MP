@@ -1,7 +1,7 @@
 IDIR =../include
 CC=g++
 
-CFLAGS=-I$(IDIR) -g
+CFLAGS=-I$(IDIR) -g -ftest-coverage -fprofile-arcs
 
 ODIR=obj
 LDIR =../lib
@@ -25,7 +25,7 @@ $(ODIR)/%.o: %.c $(DEPS)
 $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS) -Wno-write-strings 
 
-teste_romanos: $(OBJC)
+test_romanos: $(OBJC)
 	$(CC) -o $@ $^ $(CFLAGS) $(SLIBS) $(LIBS)
 
 .PHONY: clean
