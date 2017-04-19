@@ -3,6 +3,11 @@
 ** Matricula: 13/0108405                */
 
 #include <gtest/gtest.h>
+#include "romanos.h"
+
+TEST(ConverteTest, EmptyString){
+	ASSERT_EQ(Converte(""), -1);
+}
 
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);

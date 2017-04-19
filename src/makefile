@@ -25,7 +25,7 @@ $(ODIR)/%.o: %.c $(DEPS)
 $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS) -Wno-write-strings 
 
-testesGrafo: $(OBJC)
+teste_romanos: $(OBJC)
 	$(CC) -o $@ $^ $(CFLAGS) $(SLIBS) $(LIBS)
 
 .PHONY: clean

@@ -5,6 +5,6 @@
 #ifndef ROMANOS_H_
 #define ROMANOS_H_
 
-
+int Converte(char* roman_seq);
 
 #endif  // ROMANOS_H_
