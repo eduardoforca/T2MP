@@ -33,6 +33,13 @@ TEST(ConverteTest, SoloNumber){
 
 }
 
+TEST(ConverteTest, Repetitions){
+	EXPECT_EQ(Converte("XX"), 20);
+	EXPECT_NE(Converte("VV"), 10);//FAILS
+	EXPECT_EQ(Converte("CCC"), 300);
+	EXPECT_NE(Converte("IIII"), 4);//FAILS
+}
+
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
