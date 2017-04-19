@@ -4,42 +4,70 @@
 
 #include "romanos.h"
 #include <string.h>
+
+enum Algarism {
+	I = 1,
+	V = 5,
+	X = 10,
+	L = 50,
+	C = 100,
+	D = 500,
+	M = 1000,
+	INVALID = -1
+};
+
 /*Retorna conversao de string de algarismos romanos para algarismos arabicos para valores entre 1 e 3000
 	Retorna -1 para conversoes invalidas
 */
+
 int Converte(char* roman_seq){
 	if(strlen(roman_seq) <= 30 && strlen(roman_seq) > 0){
-		int resultado = 0, alg_atual = 0;
-		for(int i = 0; i < strlen(roman_seq); i++){
-			if((alg_atual = RetornaNumero(roman_seq[i])) != -1){
-				resultado += alg_atual;
-			} else{
-				return -1;
-			}
 
+		int soma_parcial = 0, resultado = 0, alg_atual = 0, alg_antigo = 0, count_reps = 0;
+
+		for(int i = 0; i < strlen(roman_seq); i++){
+			alg_antigo = alg_atual;
+			alg_atual = RetornaNumero(roman_seq[i]);
+
+			if(alg_atual != INVALID){
+				if(alg_atual == alg_antigo){
+					count_reps++;
+					soma_parcial += alg_atual;
+
+					//Numeros nao podem se repetir mais de 3 vezes
+					if(count_reps > 3)
+						return INVALID;
+
+					//V L and D nao podem ser repetidos
+					if(alg_atual == V || alg_atual == L || alg_atual == D)
+						return INVALID;
+				} else {
+					resultado += soma_parcial;
+					soma_parcial = alg_atual;
+					count_reps = 1;
+				}
+			} else{
+				return INVALID;
+			}
+		}
+		if(soma_parcial > 0){
+			resultado += soma_parcial;
 		}
 		return resultado;
 	}
-	return -1;
+	return INVALID;
 }
 
 int RetornaNumero(char alg_romano){
 	switch(alg_romano){
-		case 'I':
-			return 1;
-		case 'V':
-			return 5;
-		case 'X':
-			return 10;
-		case 'L':
-			return 50;
-		case 'C':
-			return 100;
-		case 'D':
-			return 500;
-		case 'M':
-			return 1000;
+		case 'I': return I;
+		case 'V': return V;
+		case 'X': return X;
+		case 'L': return L;
+		case 'C': return C;
+		case 'D': return D;
+		case 'M': return M;
 		default:
-			return -1;
+			return INVALID;
 	}
 }

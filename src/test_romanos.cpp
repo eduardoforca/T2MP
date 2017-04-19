@@ -16,9 +16,10 @@ TEST(RetornaNumeroTest, AllNumbers){
 	EXPECT_EQ(RetornaNumero('M'), 1000);
 	EXPECT_EQ(RetornaNumero('E'), -1);
 }
-TEST(ConverteTest, EmptyString){
+TEST(ConverteTest, EmptyStringLongString){
 	
 	ASSERT_EQ(Converte(""), -1);
+	ASSERT_EQ(Converte("Essa String tem: 31 caracteres."), -1);
 
 }
 TEST(ConverteTest, SoloNumber){
@@ -35,9 +36,9 @@ TEST(ConverteTest, SoloNumber){
 
 TEST(ConverteTest, Repetitions){
 	EXPECT_EQ(Converte("XX"), 20);
-	EXPECT_NE(Converte("VV"), 10);//FAILS
+	EXPECT_NE(Converte("VV"), 10);
 	EXPECT_EQ(Converte("CCC"), 300);
-	EXPECT_NE(Converte("IIII"), 4);//FAILS
+	EXPECT_NE(Converte("IIII"), 4);
 }
 
 int main(int argc, char **argv) {
