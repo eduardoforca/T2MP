@@ -7,5 +7,6 @@
 
 int Converte(char* roman_seq);
 int RetornaNumero(char alg_romano);
+int ChecaSubtracao(int maior, int menor);
 
 #endif  // ROMANOS_H_

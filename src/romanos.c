@@ -23,10 +23,9 @@ enum Algarism {
 int Converte(char* roman_seq){
 	if(strlen(roman_seq) <= 30 && strlen(roman_seq) > 0){
 
-		int soma_parcial = 0, resultado = 0, alg_atual = 0, alg_antigo = 0, count_reps = 0;
+		int soma_parcial = 0, resultado = 0, alg_atual = 0, alg_antigo = 1001, count_reps = 0;
 
 		for(int i = 0; i < strlen(roman_seq); i++){
-			alg_antigo = alg_atual;
 			alg_atual = RetornaNumero(roman_seq[i]);
 
 			if(alg_atual != INVALID){
@@ -41,18 +40,26 @@ int Converte(char* roman_seq){
 					//V L and D nao podem ser repetidos
 					if(alg_atual == V || alg_atual == L || alg_atual == D)
 						return INVALID;
-				} else {
+				}else if(alg_atual > alg_antigo){
+					//Numeros repetidos nao podem ser usados em subtracao
+					if(count_reps > 1)
+						return INVALID;
+					//Nem todas subtracoes sao aceitas
+					if(ChecaSubtracao(alg_atual, alg_antigo) == INVALID)
+						return INVALID;
+					//2 vezes pois foi adicionado anteriormente
+					soma_parcial = alg_atual - alg_antigo;
+				}else {
 					resultado += soma_parcial;
-					soma_parcial = alg_atual;
 					count_reps = 1;
+					soma_parcial = alg_atual;
 				}
 			} else{
 				return INVALID;
 			}
+			alg_antigo = alg_atual;
 		}
-		if(soma_parcial > 0){
-			resultado += soma_parcial;
-		}
+		resultado += soma_parcial;
 		return resultado;
 	}
 	return INVALID;
@@ -69,5 +76,18 @@ int RetornaNumero(char alg_romano){
 		case 'M': return M;
 		default:
 			return INVALID;
+	}
+}
+
+int ChecaSubtracao(int maior, int menor){
+	int sub = maior - menor;
+	switch(sub){
+		case 4: return 1;
+		case 9: return 1;
+		case 40: return 1;
+		case 90: return 1;
+		case 400: return 1;
+		case 900: return 1;
+		default: return INVALID;
 	}
 }
