@@ -16,6 +16,7 @@ TEST(RetornaNumeroTest, AllNumbers){
 	EXPECT_EQ(RetornaNumero('M'), 1000);
 	EXPECT_EQ(RetornaNumero('E'), -1);
 }
+
 TEST(ConverteTest, EmptyStringLongString){
 	
 	ASSERT_EQ(Converte(""), -1);
@@ -46,8 +47,21 @@ TEST(ConverteTest, SimpleSubtractions){
 	EXPECT_EQ(Converte("IX"), 9);
 	EXPECT_EQ(Converte("XL"), 40);
 	EXPECT_EQ(Converte("XC"), 90);
-	
+
 	EXPECT_NE(Converte("VX"), 5);
+}
+
+TEST(ConverteTest, OnlyDecreasingString){
+	EXPECT_EQ(Converte("MDCLXVI"), 1666);
+	EXPECT_EQ(Converte("CCCXXI"), 321);
+	EXPECT_EQ(Converte("CXXIII"), 123);
+}
+
+TEST(ConverteTest, LongSubtractions){
+	EXPECT_NE(Converte("IIV"), 3);
+	EXPECT_NE(Converte("XXXC"), 170);
+	EXPECT_EQ(Converte("MCDXXXIV"), 1434);
+	EXPECT_NE(Converte("DIXV"), 514);
 }
 
 int main(int argc, char **argv) {
