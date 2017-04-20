@@ -25,6 +25,7 @@ TEST(ConverteTest, EmptyStringLongString){
 }
 TEST(ConverteTest, SoloNumber){
 	
+	EXPECT_EQ(Converte("E"), -1);
 	EXPECT_EQ(Converte("I"), 1);
 	EXPECT_EQ(Converte("V"), 5);
 	EXPECT_EQ(Converte("X"), 10);
@@ -47,6 +48,8 @@ TEST(ConverteTest, SimpleSubtractions){
 	EXPECT_EQ(Converte("IX"), 9);
 	EXPECT_EQ(Converte("XL"), 40);
 	EXPECT_EQ(Converte("XC"), 90);
+	EXPECT_EQ(Converte("CD"), 400);
+	EXPECT_EQ(Converte("CM"), 900);
 
 	EXPECT_NE(Converte("VX"), 5);
 }
@@ -57,11 +60,12 @@ TEST(ConverteTest, OnlyDecreasingString){
 	EXPECT_EQ(Converte("CXXIII"), 123);
 }
 
-TEST(ConverteTest, LongSubtractions){
+TEST(ConverteTest, LongWithSubtractions){
 	EXPECT_NE(Converte("IIV"), 3);
-	EXPECT_NE(Converte("XXXC"), 170);
+	EXPECT_NE(Converte("XCCC"), 290);
 	EXPECT_EQ(Converte("MCDXXXIV"), 1434);
 	EXPECT_NE(Converte("DIXV"), 514);
+	EXPECT_NE(Converte("XCM"), 910);
 }
 
 int main(int argc, char **argv) {

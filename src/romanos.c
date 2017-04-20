@@ -23,13 +23,18 @@ enum Algarism {
 int Converte(char* roman_seq){
 	if(strlen(roman_seq) <= 30 && strlen(roman_seq) > 0){
 
-		int soma_parcial = 0, resultado = 0, alg_atual = 0, alg_antigo = 1001, count_reps = 0;
+		int soma_parcial = 0, resultado = 0, alg_atual = 0, alg_antigo = 1001, count_reps = 0, subtraiu = 0;
 
 		for(int i = 0; i < strlen(roman_seq); i++){
 			alg_atual = RetornaNumero(roman_seq[i]);
 
 			if(alg_atual != INVALID){
+
 				if(alg_atual == alg_antigo){
+					//Nao pode haver repeticao apos subtracao
+					if(subtraiu)
+						return INVALID;
+
 					count_reps++;
 					soma_parcial += alg_atual;
 
@@ -41,15 +46,32 @@ int Converte(char* roman_seq){
 					if(alg_atual == V || alg_atual == L || alg_atual == D)
 						return INVALID;
 				}else if(alg_atual > alg_antigo){
+					
+					//Valor deve sempre diminuir apos subtracao
+					if(subtraiu)
+						return INVALID;
+
 					//Numeros repetidos nao podem ser usados em subtracao
 					if(count_reps > 1)
 						return INVALID;
+
 					//Nem todas subtracoes sao aceitas
 					if(ChecaSubtracao(alg_atual, alg_antigo) == INVALID)
 						return INVALID;
+					
 					//2 vezes pois foi adicionado anteriormente
 					soma_parcial = alg_atual - alg_antigo;
+
+					subtraiu = alg_antigo;
 				}else {
+					if(subtraiu){
+						//Valor novo deve ser menor que menor membro da subtracao
+						if(subtraiu <= alg_atual){
+							return INVALID;
+						}else{
+							subtraiu = 0;
+						}
+					}
 					resultado += soma_parcial;
 					count_reps = 1;
 					soma_parcial = alg_atual;
