@@ -23,10 +23,10 @@ enum Algarism {
 int Converte(char* roman_seq){
 	if(strlen(roman_seq) <= 30 && strlen(roman_seq) > 0){
 
-		int soma_parcial = 0, resultado = 0, alg_atual = 0, alg_antigo = 1001, count_reps = 0, subtraiu = 0;
+		int soma_parcial = 0, resultado = 0, alg_antigo = 1001, count_reps = 0, subtraiu = 0;
 
 		for(int i = 0; i < strlen(roman_seq); i++){
-			alg_atual = RetornaNumero(roman_seq[i]);
+			int alg_atual = RetornaNumero(roman_seq[i]);
 
 			if(alg_atual != INVALID){
 
