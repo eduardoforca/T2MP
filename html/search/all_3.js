@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['test',['TEST',['../test__romanos_8cpp.html#a70ea5a17ca670266038eca6b5ed7d911',1,'TEST(RetornaNumeroTest, AllNumbers):&#160;test_romanos.cpp'],['../test__romanos_8cpp.html#adfe7c1a73af79a2a3d6d939b4acddbb6',1,'TEST(ConverteTest, EmptyStringLongString):&#160;test_romanos.cpp'],['../test__romanos_8cpp.html#a79b2e55de71c0d046df5238dec2faf5a',1,'TEST(ConverteTest, SoloNumber):&#160;test_romanos.cpp'],['../test__romanos_8cpp.html#ae9475bf486487065bfe911e50aadebb0',1,'TEST(ConverteTest, Repetitions):&#160;test_romanos.cpp'],['../test__romanos_8cpp.html#aacd88a661774b87986e4cc911cc4df74',1,'TEST(ConverteTest, SimpleSubtractions):&#160;test_romanos.cpp'],['../test__romanos_8cpp.html#a77a51c9741e8ca4365f432f16439ea42',1,'TEST(ConverteTest, OnlyDecreasingString):&#160;test_romanos.cpp'],['../test__romanos_8cpp.html#af272072c079161f7fcf0919d76b1753b',1,'TEST(ConverteTest, LongWithSubtractions):&#160;test_romanos.cpp'],['../test__romanos_8cpp.html#ac48379f80fa00e4faa6b88b1918f6d0a',1,'TEST(ConverteTest, LowercaseValueBounds):&#160;test_romanos.cpp']]],
+  ['test_5fromanos_2ecpp',['test_romanos.cpp',['../test__romanos_8cpp.html',1,'']]]
+];

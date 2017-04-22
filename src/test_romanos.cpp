@@ -1,11 +1,22 @@
-/* Trabalho 2 de Metodos de Programacao **
-** Aluno: Eduardo Sousa da Silva        **
-** Matricula: 13/0108405                */
+/** @file test_romanos.cpp
+ *  @brief Rotina de testes unitários de romanos.h
+ *
+ *  Testa as funções da biblioteca romanos.h utilizando o framework
+ *  de testes Google Tests
+ *  
+ *	@author Eduardo Sousa (eduardoforca)
+ *  @date 21 Apr 2017
+ */
 
 #include <gtest/gtest.h>
 #include "romanos.h"
 
-//Testa RetornaNumero para os algarismos validos e para um algarismo invalido
+/**
+ * @brief Testa RetornaNumero() para os algarismos válidos e para um algarismo inválido.
+ * 
+ * Ao passar neste teste, é garantido que RetornaNumero() retorna corretamente o valor de todos os algarismos básicos
+ * do sistema romano de numeração.
+ */
 TEST(RetornaNumeroTest, AllNumbers){
 	EXPECT_EQ(RetornaNumero('I'), 1);
 	EXPECT_EQ(RetornaNumero('V'), 5);
@@ -17,7 +28,11 @@ TEST(RetornaNumeroTest, AllNumbers){
 	EXPECT_EQ(RetornaNumero('E'), -1);
 }
 
-//Testa Converte para Strings vazias e com mais de 30 caracteres
+/**
+ * @brief Testa Converte() para Strings vazias e com mais de 30 caracteres.
+ * 
+ * Ao passar neste teste, é garantido que Converte() calcula os algarismos apenas para strings do tamanho desejado.
+ */
 TEST(ConverteTest, EmptyStringLongString){
 	
 	ASSERT_EQ(Converte(""), -1);
@@ -25,7 +40,12 @@ TEST(ConverteTest, EmptyStringLongString){
 
 }
 
-//Testa Converte para algarismos sozinhos
+/**
+ * @brief Testa Converte() para strings com apenas um algarismo.
+ * 
+ * Ao passar neste teste, é garantido que Converte() reconhece devidamente os algarismos básicos do sistema de numeração
+ * romano.
+ */
 TEST(ConverteTest, SoloNumber){
 	
 	EXPECT_EQ(Converte("E"), -1);
@@ -39,7 +59,14 @@ TEST(ConverteTest, SoloNumber){
 
 }
 
-//Testa Converte para repetições de apenas um algarismo
+/**
+ * @brief Testa Converte() para repetições de apenas um algarismo.
+ * 
+ * Ao passar neste teste, é garantido que Converte():
+ *  - Funciona para repetições dos algarismos permitidos(I, X, C, M).
+ *  - Não funciona para algarismos não permitidos(V, L, D).
+ *  - Não funciona para repetições com 4 algarismos.
+ */
 TEST(ConverteTest, Repetitions){
 	EXPECT_EQ(Converte("XX"), 20);
 	EXPECT_NE(Converte("VV"), 10);
@@ -47,7 +74,14 @@ TEST(ConverteTest, Repetitions){
 	EXPECT_NE(Converte("IIII"), 4);
 }
 
-//Testa Converte para subtrações de apenas 2 membros
+
+/**
+ * @brief Testa Converte() para subtrações.
+ * 
+ * Ao passar neste teste, é garantido que Converte(): 
+ * - Funciona para todas os pares que representam subtrações no sistema numeral romano.
+ * - Não funciona para subtrações inválidas.
+ */
 TEST(ConverteTest, SimpleSubtractions){
 	EXPECT_EQ(Converte("IV"), 4);
 	EXPECT_EQ(Converte("IX"), 9);
@@ -59,14 +93,27 @@ TEST(ConverteTest, SimpleSubtractions){
 	EXPECT_NE(Converte("VX"), 5);
 }
 
-//Testa Converte para strings com valores sempre decrescentes
+/**
+ * @brief Testa Converte() para strings com valores decrescentes.
+ * 
+ * Ao passar neste teste, é garantido que Converte() funciona para sequências com repetições de algarismos diversos ordenados
+ * de forma decrescente, ou seja, sem subtração.
+ */
 TEST(ConverteTest, OnlyDecreasingString){
 	EXPECT_EQ(Converte("MDCLXVI"), 1666);
 	EXPECT_EQ(Converte("CCCXXI"), 321);
 	EXPECT_EQ(Converte("CXXIII"), 123);
 }
 
-//Testa Converte para sequências longas com subtrações
+/**
+ * @brief Testa Converte() para sequências longas contendo subtrações.
+ * 
+ * Ao passar neste teste, é garantido que Converte():
+ * - Funciona para sequências contendo repetições e subtrações juntas.
+ * - Não funciona para subtrações de não-pares e.g: IIV.
+ * - Não funciona para subtrações desordenadas e.g: XCCC, DIXV, XCM.
+ * - Em conjunto com outros testes, funciona para toda sequência válida de algarismo romanos.
+ */
 TEST(ConverteTest, LongWithSubtractions){
 	EXPECT_NE(Converte("IIV"), 3);
 	EXPECT_NE(Converte("XCCC"), 290);
@@ -75,7 +122,13 @@ TEST(ConverteTest, LongWithSubtractions){
 	EXPECT_NE(Converte("XCM"), 910);
 }
 
-//Testa Converte para strings em caixa baixa e valores limitrofes
+/**
+ * @brief Testa Converte() para Strings em lowercase e para valores acima do limite.
+ * 
+ * Ao passar neste teste, é garantido que Converte():
+ * - Não funciona para Strings contendo caracteres minúsculos.
+ * - Não funciona para valores acima de 3000.
+ */
 TEST(ConverteTest, LowercaseValueBounds){
 	EXPECT_NE(Converte("iv"), 4);
 	EXPECT_NE(Converte("MMMI"), 3001);

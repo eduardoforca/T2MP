@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Conversor de Algarismos Romanos: Referência do Arquivo src/romanos.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Conversor de Algarismos Romanos
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#enum-members">Enumerações</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo romanos.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Protótipos das funções de conversão de algarismos romanos.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="romanos_8h_source.html">romanos.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memItemLeft" align="right" valign="top"><a id="aa8cecfc5c5c054d2875c03e77b7be15d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TRUE</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93f0eb578d23995850d61f7d61c55c1"><td class="memItemLeft" align="right" valign="top"><a id="aa93f0eb578d23995850d61f7d61c55c1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FALSE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aa93f0eb578d23995850d61f7d61c55c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerações</h2></td></tr>
+<tr class="memitem:a844ee0b39efedd953163702d1d58312f"><td class="memItemLeft" align="right" valign="top"><a id="a844ee0b39efedd953163702d1d58312f"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Algarism</b> { <br />
+&#160;&#160;<b>I</b> = 1, 
+<b>V</b> = 5, 
+<b>X</b> = 10, 
+<b>L</b> = 50, 
+<br />
+&#160;&#160;<b>C</b> = 100, 
+<b>D</b> = 500, 
+<b>M</b> = 1000, 
+<b>INVALID</b> = -1
+<br />
+ }</td></tr>
+<tr class="separator:a844ee0b39efedd953163702d1d58312f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ab76619b6ffc746c7a4d2257a96c2c1c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="romanos_8c.html#ab76619b6ffc746c7a4d2257a96c2c1c7">Converte</a> (char *roman_seq)</td></tr>
+<tr class="memdesc:ab76619b6ffc746c7a4d2257a96c2c1c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte uma string roman_seq de algarismos romanos para algarismos arábicos.  <a href="#ab76619b6ffc746c7a4d2257a96c2c1c7">Mais...</a><br /></td></tr>
+<tr class="separator:ab76619b6ffc746c7a4d2257a96c2c1c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb0670af5310830b70f19b12ebf6f49"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="romanos_8c.html#aecb0670af5310830b70f19b12ebf6f49">RetornaNumero</a> (char alg_romano)</td></tr>
+<tr class="memdesc:aecb0670af5310830b70f19b12ebf6f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna valor de alg_romano.  <a href="#aecb0670af5310830b70f19b12ebf6f49">Mais...</a><br /></td></tr>
+<tr class="separator:aecb0670af5310830b70f19b12ebf6f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f757857bef8509fc415c4e7374c199d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="romanos_8c.html#a0f757857bef8509fc415c4e7374c199d">ChecaSubtracao</a> (int maior, int menor)</td></tr>
+<tr class="memdesc:a0f757857bef8509fc415c4e7374c199d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checa se subtração é permitida em algarismos romanos.  <a href="#a0f757857bef8509fc415c4e7374c199d">Mais...</a><br /></td></tr>
+<tr class="separator:a0f757857bef8509fc415c4e7374c199d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Protótipos das funções de conversão de algarismos romanos. </p>
+<p>Esse arquivo contém os protótipos das funções utilizadas na conversão de algarismos romanos para algarismos arábicos, assim como qualquer macro, constante ou variável global que venha a ser necessário</p>
+<dl class="section author"><dt>Autor</dt><dd>Eduardo Sousa (eduardoforca) </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>21 Apr 2017 </dd></dl>
+</div><h2 class="groupheader">Funções</h2>
+<a id="a0f757857bef8509fc415c4e7374c199d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f757857bef8509fc415c4e7374c199d">&#9670;&nbsp;</a></span>ChecaSubtracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ChecaSubtracao </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maior</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>menor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checa se subtração é permitida em algarismos romanos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maior</td><td>Maior membro da subtração </td></tr>
+    <tr><td class="paramname">menor</td><td>Menor membro da subtração</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>a subtração é permitida </td></tr>
+    <tr><td class="paramname">0</td><td>a subtração não é permitida</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000002">Teste:</a></b></dt><dd><a class="el" href="test__romanos_8cpp.html#a70ea5a17ca670266038eca6b5ed7d911" title="Testa RetornaNumero() para os algarismos válidos e para um algarismo inválido. ">TEST(RetornaNumeroTest, AllNumbers)</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab76619b6ffc746c7a4d2257a96c2c1c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab76619b6ffc746c7a4d2257a96c2c1c7">&#9670;&nbsp;</a></span>Converte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Converte </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>roman_seq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte uma string roman_seq de algarismos romanos para algarismos arábicos. </p>
+<p>Válido apenas para números de 1 a 3000. A string não pode ter mais do que 30 caracteres. Caracteres minúsculos não são entradas válidas.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roman_seq</td><td>Sequência de caracteres representando um número romano </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Resultado da conversão </dd></dl>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-1</td><td>Entrada inválida</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000001">Teste:</a></b></dt><dd><p class="startdd"><a class="el" href="test__romanos_8cpp.html#adfe7c1a73af79a2a3d6d939b4acddbb6" title="Testa Converte() para Strings vazias e com mais de 30 caracteres. ">TEST(ConverteTest, EmptyStringLongString)</a> </p>
+<p><a class="el" href="test__romanos_8cpp.html#a79b2e55de71c0d046df5238dec2faf5a" title="Testa Converte() para strings com apenas um algarismo. ">TEST(ConverteTest, SoloNumber)</a> </p>
+<p><a class="el" href="test__romanos_8cpp.html#ae9475bf486487065bfe911e50aadebb0" title="Testa Converte() para repetições de apenas um algarismo. ">TEST(ConverteTest, Repetitions)</a> </p>
+<p><a class="el" href="test__romanos_8cpp.html#aacd88a661774b87986e4cc911cc4df74" title="Testa Converte() para subtrações. ">TEST(ConverteTest, SimpleSubtractions)</a> </p>
+<p><a class="el" href="test__romanos_8cpp.html#a77a51c9741e8ca4365f432f16439ea42" title="Testa Converte() para strings com valores decrescentes. ">TEST(ConverteTest, OnlyDecreasingString)</a> </p>
+<p><a class="el" href="test__romanos_8cpp.html#af272072c079161f7fcf0919d76b1753b" title="Testa Converte() para sequências longas contendo subtrações. ">TEST(ConverteTest, LongWithSubtractions)</a> </p>
+<p class="enddd"><a class="el" href="test__romanos_8cpp.html#ac48379f80fa00e4faa6b88b1918f6d0a" title="Testa Converte() para Strings em lowercase e para valores acima do limite. ">TEST(ConverteTest, LowercaseValueBounds)</a> </p>
+</dd></dl>
+
+</div>
+</div>
+<a id="aecb0670af5310830b70f19b12ebf6f49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb0670af5310830b70f19b12ebf6f49">&#9670;&nbsp;</a></span>RetornaNumero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RetornaNumero </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>alg_romano</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna valor de alg_romano. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alg_romano</td><td>Algarismo a ser convertido </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Valor de alg_romano </dd></dl>
+<dl class="retval"><dt>Valores Retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">-1</td><td>Algarismo inválido </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

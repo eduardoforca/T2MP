@@ -20,6 +20,14 @@
  * @param roman_seq Sequência de caracteres representando um número romano
  * @return Resultado da conversão
  * @retval -1 Entrada inválida
+ * 
+ * @test TEST(ConverteTest, EmptyStringLongString)
+ * @test TEST(ConverteTest, SoloNumber)
+ * @test TEST(ConverteTest, Repetitions)
+ * @test TEST(ConverteTest, SimpleSubtractions)
+ * @test TEST(ConverteTest, OnlyDecreasingString)
+ * @test TEST(ConverteTest, LongWithSubtractions)
+ * @test TEST(ConverteTest, LowercaseValueBounds)
  */
 int Converte(char* roman_seq);
 
@@ -39,6 +47,8 @@ int RetornaNumero(char alg_romano);
  * 
  * @retval 1 a subtração é permitida
  * @retval 0 a subtração não é permitida
+ * 
+ * @test TEST(RetornaNumeroTest, AllNumbers)
  */
 int ChecaSubtracao(int maior, int menor);
 
