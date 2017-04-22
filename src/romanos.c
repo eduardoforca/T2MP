@@ -5,6 +5,10 @@
 #include "romanos.h"
 #include <string.h>
 
+#define TRUE 1
+#define FALSE 0
+
+// Enum representando os possiveis algarismos romanos
 enum Algarism {
 	I = 1,
 	V = 5,
@@ -15,10 +19,6 @@ enum Algarism {
 	M = 1000,
 	INVALID = -1
 };
-
-/*Retorna conversao de string de algarismos romanos para algarismos arabicos para valores entre 1 e 3000
-	Retorna -1 para conversoes invalidas
-*/
 
 int Converte(char* roman_seq){
 	if(strlen(roman_seq) <= 30 && strlen(roman_seq) > 0){
@@ -56,7 +56,7 @@ int Converte(char* roman_seq){
 						return INVALID;
 
 					//Nem todas subtracoes sao aceitas
-					if(ChecaSubtracao(alg_atual, alg_antigo) == INVALID)
+					if(ChecaSubtracao(alg_atual, alg_antigo) == FALSE)
 						return INVALID;
 					
 					//2 vezes pois foi adicionado anteriormente
@@ -69,7 +69,7 @@ int Converte(char* roman_seq){
 						if(subtraiu <= alg_atual){
 							return INVALID;
 						}else{
-							subtraiu = 0;
+							subtraiu = FALSE;
 						}
 					}
 					resultado += soma_parcial;
@@ -82,6 +82,8 @@ int Converte(char* roman_seq){
 			alg_antigo = alg_atual;
 		}
 		resultado += soma_parcial;
+		if(resultado > 3000)
+			return INVALID;
 		return resultado;
 	}
 	return INVALID;
@@ -104,12 +106,12 @@ int RetornaNumero(char alg_romano){
 int ChecaSubtracao(int maior, int menor){
 	int sub = maior - menor;
 	switch(sub){
-		case 4: return 1;
-		case 9: return 1;
-		case 40: return 1;
-		case 90: return 1;
-		case 400: return 1;
-		case 900: return 1;
-		default: return INVALID;
+		case 4:
+		case 9:
+		case 40:
+		case 90:
+		case 400:
+		case 900: return TRUE;
+		default: return FALSE;
 	}
 }

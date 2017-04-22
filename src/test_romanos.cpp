@@ -17,12 +17,15 @@ TEST(RetornaNumeroTest, AllNumbers){
 	EXPECT_EQ(RetornaNumero('E'), -1);
 }
 
+//Testa Converte para Strings vazias e com mais de 30 caracteres
 TEST(ConverteTest, EmptyStringLongString){
 	
 	ASSERT_EQ(Converte(""), -1);
 	ASSERT_EQ(Converte("Essa String tem: 31 caracteres."), -1);
 
 }
+
+//Testa Converte para algarismos sozinhos
 TEST(ConverteTest, SoloNumber){
 	
 	EXPECT_EQ(Converte("E"), -1);
@@ -36,6 +39,7 @@ TEST(ConverteTest, SoloNumber){
 
 }
 
+//Testa Converte para repetições de apenas um algarismo
 TEST(ConverteTest, Repetitions){
 	EXPECT_EQ(Converte("XX"), 20);
 	EXPECT_NE(Converte("VV"), 10);
@@ -43,6 +47,7 @@ TEST(ConverteTest, Repetitions){
 	EXPECT_NE(Converte("IIII"), 4);
 }
 
+//Testa Converte para subtrações de apenas 2 membros
 TEST(ConverteTest, SimpleSubtractions){
 	EXPECT_EQ(Converte("IV"), 4);
 	EXPECT_EQ(Converte("IX"), 9);
@@ -54,18 +59,26 @@ TEST(ConverteTest, SimpleSubtractions){
 	EXPECT_NE(Converte("VX"), 5);
 }
 
+//Testa Converte para strings com valores sempre decrescentes
 TEST(ConverteTest, OnlyDecreasingString){
 	EXPECT_EQ(Converte("MDCLXVI"), 1666);
 	EXPECT_EQ(Converte("CCCXXI"), 321);
 	EXPECT_EQ(Converte("CXXIII"), 123);
 }
 
+//Testa Converte para sequências longas com subtrações
 TEST(ConverteTest, LongWithSubtractions){
 	EXPECT_NE(Converte("IIV"), 3);
 	EXPECT_NE(Converte("XCCC"), 290);
 	EXPECT_EQ(Converte("MCDXXXIV"), 1434);
 	EXPECT_NE(Converte("DIXV"), 514);
 	EXPECT_NE(Converte("XCM"), 910);
+}
+
+//Testa Converte para strings em caixa baixa e valores limitrofes
+TEST(ConverteTest, LowercaseValueBounds){
+	EXPECT_NE(Converte("iv"), 4);
+	EXPECT_NE(Converte("MMMI"), 3001);
 }
 
 int main(int argc, char **argv) {
